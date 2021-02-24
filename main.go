@@ -8,9 +8,10 @@ import (
 )
 
 func main() {
-	fileroot := "/users/donmennerich/Projects/dmnyu/dlts-finding-aids-ead-sample-set-1/ead-files"
+	fileroot := os.Args[1]
 
 	for _,r := range []string{"archives", "tamwag", "fales"} {
+		os.Mkdir(r, 0777)
 		repoRoot := filepath.Join(fileroot, r)
 		root, err := os.Open(repoRoot)
 		if err != nil {
